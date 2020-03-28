@@ -1,0 +1,63 @@
+#spring:
+ # profiles:
+  #  active:
+   #   - developement
+#-Dspring.profiles.active=production
+
+  #./mvnw flyway:repair -Dflyway.configFiles=src/main/resources/flyway.properties, reparar scritps incorretos via linha de comando.
+#notificador:
+#  email:
+#    host-servidor: smtp.algafood.local
+#    porta-servidor: 28
+server:
+  port: 9090
+spring:
+ # servlet:
+ #   multipart:
+ #     max-file-size: 20000
+ #     max-request-size: 20000
+  resources:
+    add-mappings: false # quando a url não está mapeada, mostrar a exceção
+  mvc:
+    throw-exception-if-no-handler-found: true # quando a url não está mapeada, mostrar a exceção
+  jackson:
+    #property-naming-strategy: SNAKE_CASE
+    deserialization:
+      fail-on-unknown-properties: true
+      fail-on-ignored-properties: true
+  flyway:
+    locations:
+      - classpath:db/migration
+      - classpath:db/testdata
+  datasource:
+    hikari:
+      maximum-pool-size: 5 #maximo de conexoes
+      minimum-idle: 3 # minimo de conexoes, ou seja, começa com 3
+      idle-timeout: 10000 #tempo limite de ociosidade das conexoes excedentes, ou seja, 5 - 3 = 2, se essas 2 nao serem usadas em 10 seg, seram fechadas
+    url: jdbc:mysql://localhost:3306/algafood?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: root
+    password: root
+  jpa:
+    properties:
+      #javax.persistence.schema-generation.scripts.action: create
+      #javax.persistence.schema-generation.scripts.create-target: src/main/resources/ddl.sql
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57Dialect
+    #generate-ddl: true
+    #hibernate:
+    #  ddl-auto: create
+    show-sql: true
+
+algaworks:
+  storage:
+    local:
+      diretorio-fotos: /home/projeto/Documentos/imagens
+    s3:
+      id-chave-acesso: AKIAVNB37ZOXP7XEQIUK
+      chave-acesso-secreta: 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
+      bucket: teste-estudo
+      regiao: sa-east-1
+      diretorio-fotos: catalogo
+    tipo: s3
+
+
