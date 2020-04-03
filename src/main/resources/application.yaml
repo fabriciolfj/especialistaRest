@@ -20,7 +20,7 @@ spring:
     host: smtp.sendgrid.net
     port: 587
     username: apikey
-    password: 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
+    password: 
 
   resources:
     add-mappings: false # quando a url não está mapeada, mostrar a exceção
