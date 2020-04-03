@@ -59,8 +59,8 @@ algaworks:
     local:
       diretorio-fotos: /home/projeto/Documentos/imagens
     s3:
-      id-chave-acesso: AKIAVNB37ZOXP7XEQIUK
-      chave-acesso-secreta: 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
+      id-chave-acesso: 
+      chave-acesso-secreta: 
       bucket: teste-estudo
       regiao: sa-east-1
       diretorio-fotos: catalogo
