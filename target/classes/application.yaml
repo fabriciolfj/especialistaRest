@@ -12,10 +12,19 @@
 server:
   port: 9090
 spring:
+  freemarker:
+    settings:
+      locale: pt_BR
  # servlet:
  #   multipart:
  #     max-file-size: 20000
  #     max-request-size: 20000
+  mail:
+    host: smtp.sendgrid.net
+    port: 587
+    username: apikey
+    password: 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
+
   resources:
     add-mappings: false # quando a url não está mapeada, mostrar a exceção
   mvc:
@@ -60,4 +69,7 @@ algaworks:
       diretorio-fotos: catalogo
     tipo: s3
 
+algafood.email.remetente: AlgaFood <naoresponder@algafood.com.br>
+algafood.email.impl: fake
+algafood.email.sandbox.destinatario: fabriciojacob124@gmail.com
 

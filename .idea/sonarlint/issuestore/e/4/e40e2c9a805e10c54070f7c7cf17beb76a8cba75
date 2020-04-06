@@ -1,0 +1,5 @@
+
+Hsquid:S1612C",Replace this lambda with a method reference.(ÖüÞíøÿÿÿÿ
+Œsquid:UselessImportCheck
+"cRemove this unused import 'com.algaworks.algafood.domain.exception.EntidadeNaoEncontradaException'.(×’µüûÿÿÿÿ
+ysquid:UselessImportCheck"URemove this unused import 'com.algaworks.algafood.domain.exception.NegocioException'.(¼ÃØ¤

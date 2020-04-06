@@ -47,7 +47,7 @@ public class EmissaoPedidoService {
 
     public PedidoModel create(PedidoInput input) {
         var pedido = pedidoInputDesassembler.toObject(input);
-        pedido.setCliente(new Usuario(1L));
+        pedido.setCliente(new Usuario(6L));
         validarDadosPedido(pedido);
         adicionarProdutos(pedido);
         pedido.calcularTotal();

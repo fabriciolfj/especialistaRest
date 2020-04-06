@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="/a.dummy">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/fragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$MAVEN_REPOSITORY$/account/authorizer-domain/0.0.1-LOCAL/authorizer-domain-0.0.1-LOCAL.jar!/br/com/accountcard/domain/customer/Customer.class">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$MAVEN_REPOSITORY$/account/authorizer-domain/0.0.1-LOCAL/authorizer-domain-0.0.1-LOCAL.jar!/br/com/accountcard/domain/customer/CustomerDTO.class">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$MAVEN_REPOSITORY$/account/authorizer-domain/0.0.1-LOCAL/authorizer-domain-0.0.1-LOCAL.jar!/br/com/accountcard/domain/customer/CustomerMessage.class">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../dados/app-meu-uol-be/src/main/kotlin/br/com/meuuol/infra/security/AuthorizationServerConfig.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../dados/emissao-cartao-conta-base2-processor/src/main/java/pagseguro/emissao/cartao/conta/processor/facade/patch/PackageServicePatcher.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/build/reports/checkstyle/main.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/AuthorizerApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/api/assembler/CustomerDtoDesassembler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/api/assembler/CustomerMessageAssembler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/api/controller/RegisterCustomer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/api/controller/RegisterCustomerController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/api/controller/exception/ApiExceptionHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/api/controller/exceptionHandler/ApiExceptionHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/api/controller/exceptionHandler/StandardError.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/api/controller/exceptionHandler/TypeError.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/api/exception/ApiExceptionHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/api/exception/TypeError.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/domain/exception/CPFInvalidException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/domain/exception/JsonConvertException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/domain/exception/JsonParsingException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/domain/facade/create/CustomerCreate.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/domain/messages/RegisterCustomer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/domain/messages/RegisterProducer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/domain/repository/CustomerRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/domain/service/CustomerService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/infra/configuration/ModelMapperConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/infra/configuration/Swagger2Config.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/infra/configuration/SwggerConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/infra/security/AuthorizationServerConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/infra/security/ResourceServerConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/infra/security/SimpleCorsFilter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/infra/security/WebSecurity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/infra/util/MessageBuild.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/java/br/com/accountcard/authorizer/infra/util/ValidCPF.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/resources/bootstrap.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/resources/db/migration/V001__create-customer.sql">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/resources/db/testdata/afterMigrate.sql">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/authorizer/src/main/resources/flyway.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/config-server/src/main/java/br/com/accountcard/configserver/ConfigServerApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/config-server/src/main/resources/application.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/discovery/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/discovery/src/main/java/br/com/accountcard/discovery/DiscoveryApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/discovery/src/main/resources/application.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/dto/CustomerDto.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/messaging/AnalyzeFraud.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/messaging/ConsumerRegisterCostumer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/messaging/ConsumerRegisterCustomer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/messaging/DeclinedDocuments.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/messaging/ProducerAnalyzeFraud.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/messaging/ProducerDeclineDocuments.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/messaging/RegisterCustomer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/messaging/decline/DeclinedDocuments.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/messaging/decline/ProducerDeclineDocuments.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/messaging/documents/ConsumerRegisterCustomer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/messaging/documents/RegisterCustomer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/messaging/fraud/AnalyzeFraud.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/messaging/fraud/ProducerAnalyzeFraud.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/messaging/notify/NotifyMail.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/messaging/notify/ProducerNotifyMail.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/domain/service/AnalyseDocumentsService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/java/br/com/accountcard/documents/util/JsonUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/documents/src/main/resources/bootstrap.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/domain/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/domain/gradle.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/domain/settings.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/domain/src/main/java/br/com/accountcard/domain/customer/Customer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/domain/src/main/java/br/com/accountcard/domain/customer/CustomerDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/domain/src/main/java/br/com/accountcard/domain/customer/CustomerMessage.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/domain/src/main/java/br/com/accountcard/domain/customer/StatusProposal.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/EmailApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/core/email/EmailProperties.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/dto/CustomerDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/dto/CustomerDto.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/exception/ProposalTypeNotFound.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/facade/create/CreateMessageMail.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/messaging/ConsumerDecline.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/messaging/ConsumerDeclineCustomer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/messaging/ConsumerRegisterCostumer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/messaging/ConsumerRegisterCustomer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/messaging/DeclineCustomer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/messaging/RegisterCostumer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/messaging/decline/ConsumerDeclineCustomer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/messaging/decline/DeclineCustomer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/messaging/decline/RegisterCostumer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/messaging/notify/ConsumerNotifyMail.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/messaging/notify/NotifyMail.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/repository/CustomerRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/service/CustomerService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/domain/service/EnvioEmailService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/java/br/com/accountcard/email/infra/service/email/SmtpEnvioEmailService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../account-card/email/src/main/resources/bootstrap.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/algaworks/algafood/core/email/EmailConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/algaworks/algafood/core/email/EmailProperties.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/algaworks/algafood/domain/event/PedidoCanceladoEvent.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/algaworks/algafood/domain/event/PedidoConfirmadoEvent.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/algaworks/algafood/domain/listener/BonificacaoClientePedidoConfirmado.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/algaworks/algafood/domain/listener/NotificacaoClientePedidoCancelado.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/algaworks/algafood/domain/listener/NotificacaoClientePedidoConfirmado.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/algaworks/algafood/domain/model/Pedido.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/algaworks/algafood/domain/service/EmissaoPedidoService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/algaworks/algafood/domain/service/EnvioEmailService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/algaworks/algafood/domain/service/FluxoPedidoService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/algaworks/algafood/infrastructure/service/email/EmailException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/algaworks/algafood/infrastructure/service/email/FakeEnvioEmailService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/algaworks/algafood/infrastructure/service/email/SandboxEnvioEmailService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/algaworks/algafood/infrastructure/service/email/SmtpEnvioEmailService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/application.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/db/testdata/afterMigrate.sql">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/templates/pedido-cancelado.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/templates/pedido-confirmado.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../microservices/microservices/product/src/main/resources/application.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../microservices/test-em-all.bash">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
