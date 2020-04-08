@@ -1,12 +1,12 @@
 
-rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦¥ÔÔ
-Csquid:S1452š"&Remove usage of generic wildcard type.(Œ–“›ýÿÿÿÿ
->squid:S1452¡"&Remove usage of generic wildcard type.(¥±Ô€
+Hsquid:S1612y",Replace this lambda with a method reference.(åÔ¯æþÿÿÿÿ
 Csquid:S1452„"&Remove usage of generic wildcard type.(Þ£ù§ÿÿÿÿÿ
-Csquid:S1612l",Replace this lambda with a method reference.(×àÐ¿
 Csquid:S1452ë"&Remove usage of generic wildcard type.(·Û¡Êüÿÿÿÿ
-hsquid:CommentedOutCodeLine”"<This block of commented-out lines of code should be removed.(œËŠÚÿÿÿÿÿ
-Csquid:S1452"&Remove usage of generic wildcard type.(àÓï™ÿÿÿÿÿ
+Csquid:S1612l",Replace this lambda with a method reference.(×àÐ¿
+rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦¥ÔÔ
 Ksquid:EmptyStatementUsageCheckq"Remove this empty statement.(ÔÄüÿÿÿÿ
 Ksquid:EmptyStatementUsageCheck~"Remove this empty statement.(²Õ‹‚üÿÿÿÿ
-Hsquid:S1612y",Replace this lambda with a method reference.(åÔ¯æþÿÿÿÿ
+>squid:S1452¡"&Remove usage of generic wildcard type.(¥±Ô€
+hsquid:CommentedOutCodeLine”"<This block of commented-out lines of code should be removed.(œËŠÚÿÿÿÿÿ
+Csquid:S1452š"&Remove usage of generic wildcard type.(Œ–“›ýÿÿÿÿ
+Csquid:S1452"&Remove usage of generic wildcard type.(àÓï™ÿÿÿÿÿ
