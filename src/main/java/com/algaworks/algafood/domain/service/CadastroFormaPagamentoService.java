@@ -11,6 +11,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class CadastroFormaPagamentoService {
 
@@ -29,6 +31,10 @@ public class CadastroFormaPagamentoService {
         }catch (DataIntegrityViolationException e){
             throw new EntidadeEmUsoException(String.format("Forma de pagamento em uso: %d", id));
         }
+    }
+
+    public List<FormaPagamento> list() {
+        return formaPagamentoRepository.findAll();
     }
 
     public FormaPagamento findById(Long id){

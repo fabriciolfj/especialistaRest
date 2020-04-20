@@ -24,7 +24,9 @@ import javax.validation.Valid;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.server.ServletServerHttpRequest;
 import org.springframework.util.ReflectionUtils;
@@ -34,6 +36,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
+//@CrossOrigin(origins = "*", maxAge = 10) //limpar o cache em 10 segundos
 @RequestMapping("/restaurantes")
 @RestController
 public class RestauranteController {
@@ -146,6 +149,10 @@ public class RestauranteController {
     public List<RestauranteModel> findAll() {
         var list = restauranteService.findAll();
         return restauranteModelAssembler.toCollectionModel(list);
+        /*return ResponseEntity
+                .ok()
+                .header(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "http://localhost:8000")
+                .body(restauranteModelAssembler.toCollectionModel(list));*/
     }
 
     /*@JsonView(RestauranteView.ApenasNome.class)
