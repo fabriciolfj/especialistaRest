@@ -11,6 +11,9 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.List;
 
 @Service
@@ -39,6 +42,13 @@ public class CadastroFormaPagamentoService {
 
     public FormaPagamento findById(Long id){
         return formaPagamentoRepository.findById(id).orElseThrow(() -> new FormaPagamentoNaoEncontradaException(id));
+    }
+
+    public String getDataUltimaAtualizacao() {
+        return formaPagamentoRepository.getDataUltimaAtualizacao().map(data -> {
+            var eTag = String.valueOf(data.toEpochSecond());
+            return eTag;
+        }).orElse(String.valueOf(LocalDateTime.now().toEpochSecond(ZoneOffset.UTC)));
     }
 
 }
