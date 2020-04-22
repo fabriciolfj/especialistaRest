@@ -5,6 +5,7 @@ import com.algaworks.algafood.api.model.PermissaoModel;
 import com.algaworks.algafood.api.model.input.GrupoNomeInput;
 import com.algaworks.algafood.domain.service.CadastroGrupoService;
 
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,7 +50,7 @@ public class GrupoController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<GrupoModel> findAll(){
+    public CollectionModel<GrupoModel> findAll(){
         return grupoService.findAll();
     }
 

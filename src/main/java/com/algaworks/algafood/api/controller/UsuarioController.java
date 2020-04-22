@@ -9,6 +9,7 @@ import com.algaworks.algafood.api.model.input.UsuarioNameEmailInput;
 import com.algaworks.algafood.api.model.input.UsuarioPasswordInput;
 import com.algaworks.algafood.domain.service.CadastroUsuarioService;
 
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,7 +51,7 @@ public class UsuarioController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<UsuarioModel> findAll(){
+    public CollectionModel<UsuarioModel> findAll(){
         return cadastroUsuarioService.findAll();
     }
 

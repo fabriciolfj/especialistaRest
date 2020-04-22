@@ -7,9 +7,7 @@ import com.algaworks.algafood.api.model.GrupoModel;
 import com.algaworks.algafood.api.model.PermissaoModel;
 import com.algaworks.algafood.api.model.input.GrupoNomeInput;
 import com.algaworks.algafood.domain.exception.EntidadeEmUsoException;
-import com.algaworks.algafood.domain.exception.EntidadeNaoEncontradaException;
 import com.algaworks.algafood.domain.exception.GrupoNaoEncontradoException;
-import com.algaworks.algafood.domain.exception.NegocioException;
 import com.algaworks.algafood.domain.exception.PermissaNaoEncontradaException;
 import com.algaworks.algafood.domain.model.Grupo;
 import com.algaworks.algafood.domain.model.Permissao;
@@ -18,6 +16,7 @@ import com.algaworks.algafood.domain.repository.PermissaoRepository;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -75,8 +74,8 @@ public class CadastroGrupoService {
         return grupoRepository.findById(id).orElseThrow(() -> new GrupoNaoEncontradoException(id));
     }
 
-    public List<GrupoModel> findAll(){
-        return grupoModelAssembler.toListModel(grupoRepository.findAll());
+    public CollectionModel<GrupoModel> findAll(){
+        return grupoModelAssembler.toCollectionModel(grupoRepository.findAll());
     }
 
     @Transactional

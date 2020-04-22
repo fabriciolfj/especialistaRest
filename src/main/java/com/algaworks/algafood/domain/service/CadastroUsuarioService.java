@@ -20,6 +20,7 @@ import com.algaworks.algafood.domain.repository.UsuarioRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -113,8 +114,8 @@ public class CadastroUsuarioService {
         return usuarioAssembler.toModel(getUsuario(id));
     }
 
-    public List<UsuarioModel> findAll(){
-        return usuarioAssembler.toModelList(usuarioRepository.findAll());
+    public CollectionModel<UsuarioModel> findAll(){
+        return usuarioAssembler.toCollectionModel(usuarioRepository.findAll());
     }
 
     public Usuario getUsuario(Long id) {

@@ -1,5 +1,6 @@
 package com.algaworks.algafood.api.controller;
 
+import com.algaworks.algafood.api.ResourceUriHelper;
 import com.algaworks.algafood.api.model.CozinhaModel;
 import com.algaworks.algafood.domain.model.Cozinha;
 import com.algaworks.algafood.domain.repository.CozinhaRepository;
@@ -16,9 +17,15 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.*;
-import org.springframework.web.server.ResponseStatusException;
 
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 @RestController
@@ -30,6 +37,7 @@ public class CozinhaController {
 
     @Autowired
     private CadastroCozinhaService cadastroCozinha;
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public Page<Cozinha> listar(@PageableDefault(size = 10) Pageable pageable){
         return cozinhaRepository.findAll(pageable);
@@ -51,25 +59,14 @@ public class CozinhaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Cozinha adicionar(@Valid @RequestBody Cozinha cozinha){
-        return cadastroCozinha.salvar(cozinha);
+    public CozinhaModel adicionar(@Valid @RequestBody Cozinha cozinha){
+        var cozinhaModel = cadastroCozinha.salvar(cozinha);
+        ResourceUriHelper.addUriResponseHeader(cozinhaModel.getId());
+        return cozinhaModel;
     }
 
     @GetMapping("/{id}")
-    //@ResponseStatus(HttpStatus.OK)
     public Cozinha findById(@PathVariable("id")  Long id){
         return cadastroCozinha.buscarOuFalhar(id);
-
-        /*if(cozinha.isPresent()){
-            return ResponseEntity.ok(cozinha.get());
-        }
-
-        return ResponseEntity.notFound().build();*/
-
-        /*HttpHeaders headers = new HttpHeaders();
-        headers.add(HttpHeaders.LOCATION, "http://localhost:8080/cozinhas");
-        //return ResponseEntity.ok(cozinha);
-        return ResponseEntity.status(HttpStatus.FOUND)
-                .headers(headers).build();*/
     }
 }

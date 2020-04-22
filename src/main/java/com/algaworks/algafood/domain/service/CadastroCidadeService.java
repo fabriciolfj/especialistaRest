@@ -12,6 +12,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,8 +36,8 @@ public class CadastroCidadeService {
     @Autowired
     private CadastroEstadoService cadastroEstadoService;
 
-    public List<CidadeModel> findAll(){
-        return cidadeModelAssembler.toListModel(cidadeRepository.findAll());
+    public CollectionModel<CidadeModel> findAll(){
+        return cidadeModelAssembler.toCollectionModel(cidadeRepository.findAll());
     }
 
     public CidadeModel findById(Long id){
