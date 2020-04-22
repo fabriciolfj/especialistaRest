@@ -9,15 +9,18 @@
         <outputRelativeToContentRoot value="true" />
         <module name="rest-expert" />
         <module name="algafood-api" />
+        <module name="algafood" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="algafood" target="11" />
       <module name="algafood-api" target="11" />
       <module name="rest-expert" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="algafood" options="-parameters" />
       <module name="algafood-api" options="-parameters" />
       <module name="rest-expert" options="-parameters" />
     </option>
