@@ -12,6 +12,13 @@
 server:
   port: 9090
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          client-id: checktoken
+          client-secret: 123
+          introspection-uri: http://localhost:8081/oauth/check_token
   freemarker:
     settings:
       locale: pt_BR
