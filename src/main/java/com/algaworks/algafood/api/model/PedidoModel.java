@@ -9,10 +9,11 @@ import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.hateoas.RepresentationModel;
 
 @Getter
 @Setter
-public class PedidoModel {
+public class PedidoModel extends RepresentationModel<PedidoModel> {
 
     private String codigo;
     private BigDecimal subTotal;

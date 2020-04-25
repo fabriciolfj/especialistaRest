@@ -21,6 +21,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.hateoas.CollectionModel;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,6 +37,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CadastroUsuarioService {
 
+    private final PasswordEncoder passwordEncoder;
     private final UsuarioRepository usuarioRepository;
     private final UsuarioAssembler usuarioAssembler;
     private final UsuarioInputDesassembler usuarioInputDesassembler;
@@ -47,6 +49,7 @@ public class CadastroUsuarioService {
 
     @Transactional
     public UsuarioModel save(Usuario usuario){
+        usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
         usuarioRepository.detach(usuario);// se nao ele atualiza o cara e vai vir 2 registros no findbyemail
 
         if(!usuarioRepository.findByEmail(usuario.getEmail()).filter(m -> !m.equals(usuario)).isEmpty()){
@@ -83,11 +86,11 @@ public class CadastroUsuarioService {
     @Transactional
     public void updatePassword(UsuarioPasswordInput input, Long id){
         var usuario = getUsuario(id);
-        if(!usuario.getSenha().equals(input.getSenhaAtual())){
+        if(!passwordEncoder.matches(input.getSenhaAtual(), usuario.getSenha())){
             throw new UsuarioPasswordInvalidoException(String.format(USUARIO_SENHA_INCORRETA, id));
         }
 
-        usuario.setSenha(input.getNovaSenha());
+        usuario.setSenha(passwordEncoder.encode(input.getNovaSenha()));
         usuarioRepository.flush();
     }
 

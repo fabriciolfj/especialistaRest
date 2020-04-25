@@ -7,6 +7,7 @@ import com.algaworks.algafood.api.model.PedidoModel;
 import com.algaworks.algafood.api.model.PedidoResumoModel;
 import com.algaworks.algafood.api.model.input.PedidoInput;
 import com.algaworks.algafood.core.data.PageableTranslator;
+import com.algaworks.algafood.core.security.SecurityUtil;
 import com.algaworks.algafood.domain.exception.FormaPagamentoNaoEncontradaException;
 import com.algaworks.algafood.domain.exception.PedidoNaoEncontradaoException;
 import com.algaworks.algafood.domain.exception.ProdutoNaoEncontradoException;
@@ -42,12 +43,13 @@ public class EmissaoPedidoService {
     private final CadastroProdutoService cadastroProdutoService;
     private final CadastroCidadeService cadastroCidadeService;
     private final CadastroUsuarioService cadastroUsuarioService;
+    private final SecurityUtil securityUtil;
 
     private static final Logger LOG = LoggerFactory.getLogger(CadastroProdutoService.class);
 
     public PedidoModel create(PedidoInput input) {
         var pedido = pedidoInputDesassembler.toObject(input);
-        pedido.setCliente(new Usuario(6L));
+        pedido.setCliente(new Usuario(securityUtil.getUsuarioId()));
         validarDadosPedido(pedido);
         adicionarProdutos(pedido);
         pedido.calcularTotal();
