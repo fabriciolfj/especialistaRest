@@ -1,3 +1,8 @@
+#nivel logging debug
+# logging:
+#  level:
+#    org.springframework: DEBUG
+
 #spring:
  # profiles:
   #  active:
@@ -12,13 +17,19 @@
 server:
   port: 9090
 spring:
+  #security: somente para opache token, para jwt não preciso
+   # oauth2:
+    #  resourceserver:
+     #   opaquetoken:
+      #    client-id: checktoken
+       #   client-secret: 123
+        #  introspection-uri: http://localhost:8081/oauth/check_token
   security:
     oauth2:
       resourceserver:
-        opaquetoken:
-          client-id: checktoken
-          client-secret: 123
-          introspection-uri: http://localhost:8081/oauth/check_token
+        jwt:
+          public-key-location: classpath:keys/algafood-pkey.pem
+
   freemarker:
     settings:
       locale: pt_BR

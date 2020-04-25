@@ -24,6 +24,7 @@ import javax.validation.Valid;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -76,7 +77,7 @@ public class RestauranteController {
 
     @GetMapping("/{restauranteId}/responsaveis")
     @ResponseStatus(HttpStatus.OK)
-    public List<UsuarioModel> getResponsaveis(@PathVariable Long restauranteId){
+    public CollectionModel<UsuarioModel> getResponsaveis(@PathVariable Long restauranteId){
         return restauranteService.getResponsaveis(restauranteId);
     }
 

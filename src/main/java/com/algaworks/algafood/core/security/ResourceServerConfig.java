@@ -1,5 +1,6 @@
 package com.algaworks.algafood.core.security;
 
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -16,7 +17,10 @@ public class ResourceServerConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .cors()
                 .and()
-                    .oauth2ResourceServer().opaqueToken(); //token sem informações de usuario, como email
-
+                .oauth2ResourceServer()
+                .jwt();//.opaqueToken(); //token sem informações de usuario, como email
     }
+
+
 }
+

@@ -1,6 +1,7 @@
 package com.algaworks.algafood.domain.service;
 
 import com.algaworks.algafood.api.assembler.UsuarioAssembler;
+import com.algaworks.algafood.api.controller.RestauranteController;
 import com.algaworks.algafood.api.model.UsuarioModel;
 import com.algaworks.algafood.domain.exception.CidadeNaoEncontradaException;
 import com.algaworks.algafood.domain.exception.CozinhaNaoEncontradaException;
@@ -12,11 +13,16 @@ import com.algaworks.algafood.domain.model.Produto;
 import com.algaworks.algafood.domain.model.Restaurante;
 import com.algaworks.algafood.domain.repository.RestauranteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Service
 public class CadastroRestauranteService {
@@ -44,8 +50,10 @@ public class CadastroRestauranteService {
     @Autowired
     private UsuarioAssembler usuarioAssembler;
 
-    public List<UsuarioModel> getResponsaveis(Long restauranteId){
-        return findById(restauranteId).getUsuarios().stream().map(m -> usuarioAssembler.toModel(m)).collect(Collectors.toList());
+    public CollectionModel<UsuarioModel> getResponsaveis(Long restauranteId){
+        var list = findById(restauranteId).getUsuarios().stream().map(m -> usuarioAssembler.toModel(m)).collect(Collectors.toList());
+        return new CollectionModel<>(list)
+                .add(linkTo(methodOn(RestauranteController.class).getResponsaveis(restauranteId)).withSelfRel());
     }
 
     public UsuarioModel getResponsavel(Long restauranteId, Long usuarioId){
