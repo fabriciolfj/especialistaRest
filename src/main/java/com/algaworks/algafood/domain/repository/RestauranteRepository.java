@@ -30,4 +30,7 @@ public interface RestauranteRepository extends CustomJpaRepository<Restaurante, 
 
     @Query("Select p From Produto p join p.restaurante r where r.id = :restauranteId and p.id = :produtoId")
     Optional<Produto> findByProduto(Long restauranteId, Long produtoId);
+
+    @Query("select case when count(1) > 0 then true else false end From Restaurante rest join rest.usuarios resp where resp.id = :usuarioId and rest.id = :restauranteId")
+    boolean existsResponsavel(Long restauranteId, Long usuarioId);
 }

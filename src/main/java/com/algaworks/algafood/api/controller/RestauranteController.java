@@ -10,6 +10,7 @@ import com.algaworks.algafood.api.model.UsuarioModel;
 import com.algaworks.algafood.api.model.input.FormaPagamentoDescricaoInput;
 import com.algaworks.algafood.api.model.input.RestauranteInput;
 import com.algaworks.algafood.api.model.view.RestauranteView;
+import com.algaworks.algafood.core.security.CheckSecurity;
 import com.algaworks.algafood.core.validation.ValidacaoException;
 import com.algaworks.algafood.domain.model.Restaurante;
 import com.algaworks.algafood.domain.service.CadastroFormaPagamentoService;
@@ -63,66 +64,77 @@ public class RestauranteController {
     @Autowired
     private CadastroFormaPagamentoService cadastroFormaPagamentoService;
 
+    @CheckSecurity.RESTAURANTE.EDITAR
     @PutMapping("/ativacoes")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void ativarMultiplos(@RequestBody List<Long> restauranteIds){
         restauranteService.ativar(restauranteIds);
     }
 
+    @CheckSecurity.RESTAURANTE.EDITAR
     @DeleteMapping("/inativacoes")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void inativarMultiplos(@RequestBody List<Long> restauranteIds){
         restauranteService.inativar(restauranteIds);
     }
 
+    @CheckSecurity.RESTAURANTE.CONSULTAR
     @GetMapping("/{restauranteId}/responsaveis")
     @ResponseStatus(HttpStatus.OK)
     public CollectionModel<UsuarioModel> getResponsaveis(@PathVariable Long restauranteId){
         return restauranteService.getResponsaveis(restauranteId);
     }
 
+    @CheckSecurity.RESTAURANTE.CONSULTAR
     @GetMapping("/{restauranteId}/responsaveis/{responsavelId}")
     @ResponseStatus(HttpStatus.OK)
     public UsuarioModel getResponsavel(@PathVariable Long restauranteId, @PathVariable Long responsavelId){
         return restauranteService.getResponsavel(restauranteId, responsavelId);
     }
 
+    @CheckSecurity.RESTAURANTE.EDITAR
     @DeleteMapping("/{restauranteId}/responsaveis/{responsavelId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removeReponsavel(@PathVariable Long restauranteId, @PathVariable Long responsavelId){
         restauranteService.removerResponsavel(restauranteId, responsavelId);
     }
 
+    @CheckSecurity.RESTAURANTE.EDITAR
     @PutMapping("/{restauranteId}/responsaveis/{responsavelId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void adicionarReponsavel(@PathVariable Long restauranteId, @PathVariable Long responsavelId){
         restauranteService.adicionarResponsavel(restauranteId, responsavelId);
     }
 
+    @CheckSecurity.RESTAURANTE.GERENCIAR_FUNCIONAMENTO
     @PutMapping("/{restauranteId}/fechamento")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void fechar(@PathVariable Long restauranteId){
         restauranteService.fechar(restauranteId);
     }
 
+    @CheckSecurity.RESTAURANTE.GERENCIAR_FUNCIONAMENTO
     @PutMapping("/{restauranteId}/abertura")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void abertura(@PathVariable Long restauranteId){
         restauranteService.abrir(restauranteId);
     }
 
+    @CheckSecurity.RESTAURANTE.GERENCIAR_FUNCIONAMENTO
     @PutMapping("/{restauranteId}/ativo")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void ativar(@PathVariable Long restauranteId){
         restauranteService.ativar(restauranteId);
     }
 
+    @CheckSecurity.RESTAURANTE.GERENCIAR_FUNCIONAMENTO
     @PutMapping("/{restauranteId}/inativo")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void inativo(@PathVariable Long restauranteId){
         restauranteService.inativar(restauranteId);
     }
 
+    @CheckSecurity.RESTAURANTE.EDITAR
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public RestauranteModel adicionar(/*@Validated(Groups.CozinhaId.class)*/ @Valid @RequestBody RestauranteInput restauranteInput){
@@ -130,6 +142,7 @@ public class RestauranteController {
         return restauranteModelAssembler.toModel(restauranteService.salvar(restaurante));
     }
 
+    @CheckSecurity.RESTAURANTE.EDITAR
     @PutMapping("/{id}")
     public RestauranteModel atualizar(@Valid @RequestBody RestauranteInput restauranteInput, @PathVariable("id")Long id){
         var restauranteAtual = restauranteService.findById(id);
@@ -139,12 +152,14 @@ public class RestauranteController {
         return restauranteModelAssembler.toModel(restauranteService.atualizar(restauranteAtual));
     }
 
+    @CheckSecurity.RESTAURANTE.CONSULTAR
     @GetMapping("/{id}")
     public RestauranteModel findById(@PathVariable("id") Long id) {
         var restaurante = restauranteService.findById(id);
         return restauranteModelAssembler.toModel(restaurante);
     }
 
+    @CheckSecurity.RESTAURANTE.CONSULTAR
     @JsonView(RestauranteView.Resumo.class)
     @GetMapping
     public List<RestauranteModel> findAll() {
@@ -162,6 +177,7 @@ public class RestauranteController {
         return findAll();
     }*/
 
+    @CheckSecurity.RESTAURANTE.EDITAR
     @PatchMapping("/{id}")
     public RestauranteModel atualizarParcial(@PathVariable("id") Long id, @RequestBody Map<String, Object> restaurante, HttpServletRequest request){
         var restauranteAtual = restauranteService.findById(id);

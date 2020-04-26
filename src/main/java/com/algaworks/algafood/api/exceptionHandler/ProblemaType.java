@@ -10,6 +10,7 @@ public enum ProblemaType {
     PARAMETRO_INVALIDO("/value", "Parametro inválido"),
     ERRO_DE_SISTEMA("/sistema", "Erro de sistema"),
     DADOS_INVALIDOS("/dados","Dados inválidos"),
+    ACESSO_NEGADO("/acesso-negado", "Acesso negado"),
     ENTIDADE_EM_USO("/entidade-em-uso", "Entidade em uso");
 
     private String path;

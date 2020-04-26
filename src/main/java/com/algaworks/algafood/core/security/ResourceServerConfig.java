@@ -4,30 +4,30 @@ package com.algaworks.algafood.core.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
+import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 
-import java.util.Arrays;
+
+import java.util.Collection;
 import java.util.Collections;
 import java.util.stream.Collectors;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ResourceServerConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/actuator/**").permitAll()
-                //.antMatchers(HttpMethod.POST, "/cozinhas/**").hasAnyAuthority("EDITAR_COZINHAS")
-                //.antMatchers(HttpMethod.GET, "/cozinhas").authenticated()
-                .anyRequest().authenticated()
-                .and()
+        http.csrf().disable()
                 .cors()
                 .and()
                 .oauth2ResourceServer()
@@ -43,8 +43,15 @@ public class ResourceServerConfig extends WebSecurityConfigurerAdapter {
                 authorities = Collections.emptyList();
             }
 
-            return authorities.stream().map(SimpleGrantedAuthority::new)
-                    .collect(Collectors.toList());
+            var scopeAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();
+            Collection<GrantedAuthority> grantedAuthorities = scopeAuthoritiesConverter.convert(jwt);
+
+            grantedAuthorities.addAll(
+                    authorities.stream()
+                            .map(SimpleGrantedAuthority::new)
+                    .collect(Collectors.toList()));
+
+            return grantedAuthorities;
         });
         return jwtAuthenticationConverter;
     }
