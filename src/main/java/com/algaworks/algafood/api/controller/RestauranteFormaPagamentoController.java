@@ -2,6 +2,7 @@ package com.algaworks.algafood.api.controller;
 
 import com.algaworks.algafood.api.assembler.FormaPagamentoAssembler;
 import com.algaworks.algafood.api.model.FormaPagamentoModel;
+import com.algaworks.algafood.core.security.CheckSecurity;
 import com.algaworks.algafood.domain.model.Restaurante;
 import com.algaworks.algafood.domain.service.CadastroRestauranteService;
 
@@ -34,12 +35,14 @@ public class RestauranteFormaPagamentoController {
         return formaPagamentoAssembler.toListModel(restaurante.getFormasPagamento());
     }
 
+    @CheckSecurity.RESTAURANTE.GERENCIAR_FUNCIONAMENTO
     @DeleteMapping("/{formaPagamentoId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void desassociar(@PathVariable Long restauranteId, @PathVariable Long formaPagamentoId){
         restauranteService.desassociarFormaPagamento(restauranteId, formaPagamentoId);
     }
 
+    @CheckSecurity.RESTAURANTE.GERENCIAR_FUNCIONAMENTO
     @PutMapping("/{formaPagamentoId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void associar(@PathVariable Long restauranteId, @PathVariable Long formaPagamentoId){

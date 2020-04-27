@@ -3,6 +3,7 @@ package com.algaworks.algafood.api.controller;
 import com.algaworks.algafood.api.assembler.ProdutoInputDesassembler;
 import com.algaworks.algafood.api.assembler.ProdutoModelAssembler;
 import com.algaworks.algafood.api.model.input.ProdutoInput;
+import com.algaworks.algafood.core.security.CheckSecurity;
 import com.algaworks.algafood.domain.model.ProdutoModel;
 import com.algaworks.algafood.domain.service.CadastroProdutoService;
 import com.algaworks.algafood.domain.service.CadastroRestauranteService;
@@ -50,6 +51,7 @@ public class RestauranteProdutosController {
         return produtoModelAssembler.toModel(produto);
     }
 
+    @CheckSecurity.RESTAURANTE.GERENCIAR_FUNCIONAMENTO
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createProduto(@PathVariable Long restauranteId,@Valid @RequestBody ProdutoInput input){
@@ -59,6 +61,7 @@ public class RestauranteProdutosController {
         cadastroProdutoService.save(produto);
     }
 
+    @CheckSecurity.RESTAURANTE.GERENCIAR_FUNCIONAMENTO
     @PutMapping("/{produtoId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateProduto(@PathVariable Long restauranteId, @PathVariable Long produtoId,@Valid @RequestBody ProdutoInput input){

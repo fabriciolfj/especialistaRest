@@ -1,10 +1,7 @@
 package com.algaworks.algafood.api.exceptionHandler;
 
 import com.algaworks.algafood.core.validation.ValidacaoException;
-import com.algaworks.algafood.domain.exception.EntidadeEmUsoException;
-import com.algaworks.algafood.domain.exception.EntidadeNaoEncontradaException;
-import com.algaworks.algafood.domain.exception.EntidadeRelacionadaNaoEncontradaException;
-import com.algaworks.algafood.domain.exception.NegocioException;
+import com.algaworks.algafood.domain.exception.*;
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import com.fasterxml.jackson.databind.exc.PropertyBindingException;
 
@@ -171,6 +168,11 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 .build();
 
         return handleExceptionInternal(e, problem, new HttpHeaders(), status, request);
+    }
+
+    @ExceptionHandler(PedidoNaoEncontradaoException.class)
+    public ResponseEntity<?> handlePedidoNaoEncontrado(PedidoNaoEncontradaoException e, WebRequest request) {
+        return handleExceptionInternal(e, e.getMessage(), new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 
     @ExceptionHandler(EntidadeRelacionadaNaoEncontradaException.class)

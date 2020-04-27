@@ -3,6 +3,7 @@ package com.algaworks.algafood.api.controller;
 import com.algaworks.algafood.api.model.PedidoModel;
 import com.algaworks.algafood.api.model.PedidoResumoModel;
 import com.algaworks.algafood.api.model.input.PedidoInput;
+import com.algaworks.algafood.core.security.CheckSecurity;
 import com.algaworks.algafood.domain.filter.PedidoFilter;
 import com.algaworks.algafood.domain.service.EmissaoPedidoService;
 
@@ -24,10 +25,11 @@ public class PedidoController {
     private final EmissaoPedidoService cadastroPedidoService;
 
 
+    @CheckSecurity.Pedidos.PodePesquisar
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public Page<PedidoResumoModel> findAll(PedidoFilter filter,@PageableDefault(size = 2) Pageable pageable){
-        return cadastroPedidoService.findAll(filter, pageable);
+    public Page<PedidoResumoModel> findAll(PedidoFilter filtro,@PageableDefault(size = 2) Pageable pageable){
+        return cadastroPedidoService.findAll(filtro, pageable);
     }
 
     /*@GetMapping
@@ -47,12 +49,14 @@ public class PedidoController {
         return pedidosWrapper;
     }*/
 
+    @CheckSecurity.Pedidos.PodeBuscar
     @GetMapping("/{codigo}")
     @ResponseStatus(HttpStatus.OK)
     public PedidoModel findById(@PathVariable String codigo){
         return cadastroPedidoService.buscarOuFalhar(codigo);
     }
 
+    @CheckSecurity.Pedidos.PodeCriar
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public PedidoModel create(@RequestBody @Valid PedidoInput input){

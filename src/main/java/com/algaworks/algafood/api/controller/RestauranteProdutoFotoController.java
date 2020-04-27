@@ -3,6 +3,7 @@ package com.algaworks.algafood.api.controller;
 import com.algaworks.algafood.api.assembler.FotoProdutoModelAssembler;
 import com.algaworks.algafood.api.model.FotoProdutoModel;
 import com.algaworks.algafood.api.model.input.FotoProdutoInput;
+import com.algaworks.algafood.core.security.CheckSecurity;
 import com.algaworks.algafood.domain.model.FotoProduto;
 import com.algaworks.algafood.domain.model.Produto;
 import com.algaworks.algafood.domain.service.CadastroFotoProdutoService;
@@ -40,6 +41,7 @@ public class RestauranteProdutoFotoController {
     private final CadastroProdutoService produtoService;
     private final FotoProdutoModelAssembler assembler;
 
+    @CheckSecurity.RESTAURANTE.GERENCIAR_FUNCIONAMENTO
     @PutMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public FotoProdutoModel atualizarFoto(@PathVariable Long restauranteId, @PathVariable Long produtoId, @Valid FotoProdutoInput fotoProdutoInput) throws IOException {
         var produto = produtoService.findById(produtoId, restauranteId);
