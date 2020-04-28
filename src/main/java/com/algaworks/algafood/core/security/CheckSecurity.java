@@ -1,6 +1,5 @@
 package com.algaworks.algafood.core.security;
 
-import groovy.transform.Internal;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 
@@ -45,14 +44,14 @@ public @interface CheckSecurity {
 
         @PreAuthorize("hasAuthority('SCOPE_READ') and isAuthenticated()")
         @PostAuthorize("hasAuthority('CONSULTAR_PEDIDOS') or "
-                + "@securityUtil.getUsuarioId() == returnObject.cliente.id or "
+                + "@securityUtil.usuarioAutenticadoIgual(returnObject.cliente.id) or "
                 + "@securityUtil.gerenciaRestaurante(returnObject.restaurante.id)")
         @Retention(RUNTIME)
         @Target(METHOD)
         @interface PodeBuscar { }
 
         @PreAuthorize("hasAuthority('SCOPE_READ') and (hasAuthority('CONSULTAR_PEDIDOS') or "
-                + "@securityUtil.getUsuarioId() == #filtro.clienteId or"
+                + "@securityUtil.usuarioAutenticadoIgual(#filtro.clienteId) or"
                 + "@securityUtil.gerenciaRestaurante(#filtro.restauranteId))")
         @Retention(RUNTIME)
         @Target(METHOD)
@@ -61,9 +60,46 @@ public @interface CheckSecurity {
         @PreAuthorize("hasAuthority('SCOPE_WRITE') and isAuthenticated()")
         @interface PodeCriar { }
 
-        @PreAuthorize("hasAuthority('SCOPE_WRITE') and (hasAuthority('GERENCIAR_PEDIDOS') or @securityUtil.gerenciaRestauranteDoPedido(#codigoPedido))")
+        @PreAuthorize("@securityUtil.podeGerenciarPedidos(#codigoPedido))")
         @interface PodeGerenciarPedidos { }
+    }
 
+    @interface FormaPagamento {
+         @PreAuthorize("hasAuthority('SCOPE_READ') and isAuthenticated()")
+         @Retention(RUNTIME)
+         @Target(METHOD)
+        @interface PodeConsultar { }
 
+        @PreAuthorize("hasAuthority('SCOPE_WRITE') and hasAuthority('EDITAR_FORMAS_PAGAMENTO')")
+        @interface PodeEditar { }
+    }
+
+    @interface Cidades {
+
+        @PreAuthorize("hasAuthority('SCOPE_READ') and isAuthenticated()")
+        @Retention(RUNTIME)
+        @Target(METHOD)
+        @interface PodeConsultar { }
+
+        @PreAuthorize("hasAuthority('SCOPE_WRITE') and hasAuthority('EDITAR_CIDADES')")
+        @Retention(RUNTIME)
+        @Target(METHOD)
+        @interface PodeEditar { }
+    }
+
+    @interface UsuarioGruposPermissoes {
+
+         @PreAuthorize("hasAuthority('SCOPE_READ') and #securityUtil.usuarioAutenticadoIgual(#usuarioId)")
+         @Retention(RUNTIME)
+         @Target(METHOD)
+         @interface PodeAlterarPropriaSenha { }
+    }
+
+    @interface Estatisticas {
+
+         @PreAuthorize("hasAuthority('SCOPE_READ') and hasAuthority('GERAR_RELATORIOS')")
+         @Retention(RUNTIME)
+         @Target(METHOD)
+         @interface PodeConsultar { }
     }
 }

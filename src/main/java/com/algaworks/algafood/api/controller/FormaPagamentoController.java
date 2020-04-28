@@ -4,6 +4,7 @@ import com.algaworks.algafood.api.assembler.FormaPagamentoAssembler;
 import com.algaworks.algafood.api.assembler.FormaPgtoDesassembler;
 import com.algaworks.algafood.api.model.FormaPagamentoModel;
 import com.algaworks.algafood.api.model.input.FormaPagamentoDescricaoInput;
+import com.algaworks.algafood.core.security.CheckSecurity;
 import com.algaworks.algafood.domain.service.CadastroFormaPagamentoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,7 @@ public class FormaPagamentoController {
     @Autowired
     private FormaPagamentoAssembler assembler;
 
+    @CheckSecurity.FormaPagamento.PodeConsultar
     @GetMapping
     public ResponseEntity<List<FormaPagamentoModel>> list(ServletWebRequest request) {
         ShallowEtagHeaderFilter.disableContentCaching(request.getRequest());
@@ -55,6 +57,7 @@ public class FormaPagamentoController {
                 .body(list);
     }
 
+    @CheckSecurity.FormaPagamento.PodeConsultar
     @GetMapping("/{formaPagamentoId}")
     public ResponseEntity<FormaPagamentoModel> findById(@PathVariable Long formaPagamentoId) {
         var formaPagamento = assembler.toModel(cadastroFormaPagamentoService.findById(formaPagamentoId));
@@ -68,6 +71,7 @@ public class FormaPagamentoController {
                 .body(formaPagamento);
     }
 
+    @CheckSecurity.FormaPagamento.PodeEditar
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public FormaPagamentoModel create(@Valid @RequestBody FormaPagamentoDescricaoInput input){
@@ -75,6 +79,7 @@ public class FormaPagamentoController {
         return assembler.toModel(cadastroFormaPagamentoService.save(formaPgto));
     }
 
+    @CheckSecurity.FormaPagamento.PodeEditar
     @PutMapping("/{formaPgtoId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@PathVariable Long formaPgtoId, @RequestBody FormaPagamentoDescricaoInput input){
@@ -83,6 +88,7 @@ public class FormaPagamentoController {
         cadastroFormaPagamentoService.save(formaPgto);
     }
 
+    @CheckSecurity.FormaPagamento.PodeEditar
     @DeleteMapping("/{formaPgtoId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long formaPgtoId){

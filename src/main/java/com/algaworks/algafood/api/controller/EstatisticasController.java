@@ -1,5 +1,6 @@
 package com.algaworks.algafood.api.controller;
 
+import com.algaworks.algafood.core.security.CheckSecurity;
 import com.algaworks.algafood.domain.filter.VendaDiariaFilter;
 import com.algaworks.algafood.domain.model.dto.VendaDiaria;
 import com.algaworks.algafood.domain.service.VendaQueryService;
@@ -24,11 +25,13 @@ public class EstatisticasController {
     private final VendaQueryService vendaQueryService;
     private final VendaReportService vendaReportService;
 
+    @CheckSecurity.Estatisticas.PodeConsultar
     @GetMapping(value = "/vendas-diarias", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<VendaDiaria> consultarVendasDiarias(VendaDiariaFilter filter,@RequestParam(value = "timeOffSet", required = false, defaultValue = "+00:00") String timeOffSet) {
         return vendaQueryService.consultarVendasDiarias(filter, timeOffSet);
     }
 
+    @CheckSecurity.Estatisticas.PodeConsultar
     @GetMapping(value = "/vendas-diarias", produces = MediaType.APPLICATION_PDF_VALUE)
     public ResponseEntity<byte[]> consultarVendasDiariasPdf(VendaDiariaFilter filter, @RequestParam(value = "timeOffSet", required = false, defaultValue = "+00:00") String timeOffSet) throws JRException {
         byte[] bytesPdf = vendaReportService.emitirVendasDiarias(filter, timeOffSet);

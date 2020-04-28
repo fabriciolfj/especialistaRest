@@ -31,4 +31,18 @@ public class SecurityUtil {
     public boolean gerenciaRestauranteDoPedido(String codigoPedido) {
         return pedidoRepository.isPedidoGerenciadoPor(codigoPedido, getUsuarioId());
     }
+
+    public boolean usuarioAutenticadoIgual(Long usuarioId) {
+        return getUsuarioId() != null && usuarioId != null
+                && getUsuarioId().equals(usuarioId);
+    }
+
+    public boolean hasAuthority(String authorityName) {
+        return getAuthentication().getAuthorities().stream()
+                .anyMatch(authority ->  authority.getAuthority().equals(authorityName)); //se pelo menos 1 for igual, vai ser true, se nao false
+    }
+
+    public boolean podeGerenciarPedidos(String codigo) {
+        return hasAuthority("SCOPE_WRITE") && (hasAuthority("GERENCIAR_PEDIDOS") || gerenciaRestauranteDoPedido(codigo));
+    }
 }

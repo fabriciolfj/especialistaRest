@@ -7,6 +7,7 @@ import com.algaworks.algafood.api.model.UsuarioModel;
 import com.algaworks.algafood.api.model.input.UsuarioInput;
 import com.algaworks.algafood.api.model.input.UsuarioNameEmailInput;
 import com.algaworks.algafood.api.model.input.UsuarioPasswordInput;
+import com.algaworks.algafood.core.security.CheckSecurity;
 import com.algaworks.algafood.domain.service.CadastroUsuarioService;
 
 import org.springframework.hateoas.CollectionModel;
@@ -62,6 +63,7 @@ public class UsuarioController {
         return cadastroUsuarioService.update(usuario, usuarioId);
     }
 
+    @CheckSecurity.UsuarioGruposPermissoes.PodeAlterarPropriaSenha
     @PutMapping("/{usuarioId}/senha")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateSenha(@PathVariable Long usuarioId, @Valid @RequestBody UsuarioPasswordInput input){
