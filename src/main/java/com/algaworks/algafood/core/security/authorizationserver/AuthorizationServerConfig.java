@@ -46,39 +46,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.jdbc(dataSource);
-                /*.inMemory()
-                    .withClient("algafood-web")
-                    .secret(passwordEncoder.encode("123"))
-                    .authorizedGrantTypes("password", "refresh_token")
-                    .scopes("WRITE", "READ")
-                    .accessTokenValiditySeconds(60000)
-                    .refreshTokenValiditySeconds(60 * 6)
-                .and()
-                    .withClient("foodanalytics")
-                    .secret(passwordEncoder.encode("123"))
-                    .authorizedGrantTypes("authorization_code", "refresh_token")
-                    .scopes("WRITE", "READ")
-                    .redirectUris("http://localhost:8082")
-                    .accessTokenValiditySeconds(60 * 60 *60)
-                    .refreshTokenValiditySeconds(60 * 6)
-                .and()
-                    .withClient("mobile")
-                    .authorizedGrantTypes("implicit")
-                    .scopes("WRITE", "READ")
-                    .redirectUris("http://aplicacao-cliente:8082")
-                    .accessTokenValiditySeconds(60 * 60 *60 *60)
-                .and()
-                    .withClient("checktoken")
-                    .secret(passwordEncoder.encode("123"))
-                    .authorizedGrantTypes("password", "refresh_token")
-                    .scopes("WRITE", "READ")
-                    .accessTokenValiditySeconds(60000)
-                    .refreshTokenValiditySeconds(60 * 6)
-                .and()
-                    .withClient("faturamento")
-                    .secret(passwordEncoder.encode("123"))
-                    .authorizedGrantTypes("client_credentials")
-                    .scopes("WRITE", "READ");*/
     }
 
     @Override
