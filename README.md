@@ -11,4 +11,8 @@ no script de criação da tabela do oauth2, algumas observações:
 (o client credentials, se a autenticação está por endpoint, vou precisar da authorities, 
 caso for inserir mais de uma, separa por , ex: 'CONSULTA_PEDIDO,EDITAR_PEDIDO')
 
-- o autoapprove ele nao mostra a tela que da aprovação ao usuario, 
+- o autoapprove ele nao mostra a tela que da aprovação ao usuario,
+
+
+exemplo de requisição code
+http://localhost:9090/oauth/authorize?response_type=code&client_id=foodanalytics&state=abc&redirect_uri=http://localhost:8082 

@@ -12,6 +12,11 @@
       "sourceMethod": "getSandBox()"
     },
     {
+      "name": "algafood.jwt.keystore",
+      "type": "com.algaworks.algafood.core.security.authorizationserver.JwtKeyStoreProperties",
+      "sourceType": "com.algaworks.algafood.core.security.authorizationserver.JwtKeyStoreProperties"
+    },
+    {
       "name": "algaworks.storage",
       "type": "com.algaworks.algafood.core.storage.StorageProperties",
       "sourceType": "com.algaworks.algafood.core.storage.StorageProperties"
@@ -44,6 +49,21 @@
       "name": "algafood.email.remetente",
       "type": "java.lang.String",
       "sourceType": "com.algaworks.algafood.core.email.EmailProperties"
+    },
+    {
+      "name": "algafood.jwt.keystore.jks-location",
+      "type": "org.springframework.core.io.Resource",
+      "sourceType": "com.algaworks.algafood.core.security.authorizationserver.JwtKeyStoreProperties"
+    },
+    {
+      "name": "algafood.jwt.keystore.keypair-alias",
+      "type": "java.lang.String",
+      "sourceType": "com.algaworks.algafood.core.security.authorizationserver.JwtKeyStoreProperties"
+    },
+    {
+      "name": "algafood.jwt.keystore.password",
+      "type": "java.lang.String",
+      "sourceType": "com.algaworks.algafood.core.security.authorizationserver.JwtKeyStoreProperties"
     },
     {
       "name": "algaworks.storage.tipo",

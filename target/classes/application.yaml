@@ -91,3 +91,9 @@ algafood.email.remetente: AlgaFood <naoresponder@algafood.com.br>
 algafood.email.impl: fake
 algafood.email.sandbox.destinatario: fabriciojacob124@gmail.com
 
+algafood:
+  jwt:
+    keystore:
+      jks-location: classpath:keys/algafood.jks
+      password: 123456
+      keypair-alias: algafood

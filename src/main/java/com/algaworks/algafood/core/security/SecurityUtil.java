@@ -29,7 +29,8 @@ public class SecurityUtil {
     }
 
     public boolean gerenciaRestauranteDoPedido(String codigoPedido) {
-        return pedidoRepository.isPedidoGerenciadoPor(codigoPedido, getUsuarioId());
+        var result = pedidoRepository.isPedidoGerenciadoPor(codigoPedido, getUsuarioId());
+        return result;
     }
 
     public boolean usuarioAutenticadoIgual(Long usuarioId) {
