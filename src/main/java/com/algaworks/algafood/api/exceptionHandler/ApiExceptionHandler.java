@@ -39,37 +39,12 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     @Autowired
     private MessageSource messageSource;
 
-    @Override
-    protected ResponseEntity<Object> handleHttpMediaTypeNotAcceptable(HttpMediaTypeNotAcceptableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return ResponseEntity.status(status).headers(headers ).build();
-    }
-
-    @Override
-    protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-
-        if(ex instanceof NoHandlerFoundException){
-            return handleNotFound((NoHandlerFoundException) ex, headers, status, request);
-        }
-
-        return super.handleNoHandlerFoundException(ex, headers, status, request);
-    }
 
     private ResponseEntity<Object> handleNotFound(NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         var type = ProblemaType.RECURSO_NAO_ENCONTRADO;
         String detail = String.format("O recurso %s, que você tentou acessar, é inexistente.", ex.getRequestURL());
         var problem = createProblemBuilder(status, type,detail).build();
         return handleExceptionInternal(ex, problem, headers, status, request);
-    }
-
-    @Override
-    protected ResponseEntity<Object> handleTypeMismatch(TypeMismatchException ex, HttpHeaders headers,
-                                                        HttpStatus status, WebRequest request) {
-        if (ex instanceof MethodArgumentTypeMismatchException) {
-            return handleMethodArgumentTypeMismatch(
-                    (MethodArgumentTypeMismatchException) ex, headers, status, request);
-        }
-
-        return super.handleTypeMismatch(ex, headers, status, request);
     }
 
     private ResponseEntity<Object> handleMethodArgumentTypeMismatch(
@@ -85,22 +60,6 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         Problem problem = createProblemBuilder(status, problemType, detail).build();
 
         return handleExceptionInternal(ex, problem, headers, status, request);
-    }
-
-    @Override
-    protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException e, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        var rootCause = ExceptionUtils.getRootCause(e);
-
-        if(rootCause instanceof InvalidFormatException){
-            return handleInvalidFormatException((InvalidFormatException) rootCause, headers, status, request);
-        }
-
-        if(rootCause instanceof PropertyBindingException){
-            return handlePropertyException((PropertyBindingException) rootCause, headers, status, request);
-        }
-
-        var problem = createProblemBuilder(status, ProblemaType.MENSAGEM_INCOMPREENSIVEL, "O corpo da requisição está inválida. Verifique erro de sintaxe.").build();
-        return handleExceptionInternal(e, problem, new HttpHeaders(), status, request);
     }
 
     private ResponseEntity<Object> handlePropertyException(PropertyBindingException e, HttpHeaders headers, HttpStatus status, WebRequest request) {
@@ -168,16 +127,6 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 HttpStatus.BAD_REQUEST, request);
     }
 
-    @Override
-    protected ResponseEntity<Object> handleBindException(BindException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return handleValidationInternal(ex, ex.getBindingResult(), headers, status, request);
-    }
-
-    @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
-                                                                  HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return handleValidationInternal(ex, ex.getBindingResult(), headers, status, request);
-    }
 
     private ResponseEntity<Object> handleValidationInternal(Exception ex, BindingResult bindingResult, HttpHeaders headers,
                                                             HttpStatus status, WebRequest request) {
@@ -207,28 +156,6 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 .build();
 
         return handleExceptionInternal(ex, problem, headers, status, request);
-    }
-
-    @Override
-    protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatus status, WebRequest request) {
-
-        if (body == null) {
-            body = Problem.builder()
-                    .timestamp(OffsetDateTime.now())
-                    .title(status.getReasonPhrase())
-                    .status(status.value())
-                    .userMessage(ERRO_INTERNO_INESPERADO)
-                    .build();
-        } else if (body instanceof String) {
-            body = Problem.builder()
-                    .timestamp(OffsetDateTime.now())
-                    .title((String) body)
-                    .status(status.value())
-                    .userMessage(ERRO_INTERNO_INESPERADO)
-                    .build();
-        }
-
-        return super.handleExceptionInternal(ex, body, headers, status, request);
     }
 
     @ExceptionHandler(Exception.class)
