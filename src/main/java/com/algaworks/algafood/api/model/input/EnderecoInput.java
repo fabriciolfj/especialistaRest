@@ -2,8 +2,8 @@ package com.algaworks.algafood.api.model.input;
 
 import com.algaworks.algafood.api.model.CidadeResumoModel;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.Setter;

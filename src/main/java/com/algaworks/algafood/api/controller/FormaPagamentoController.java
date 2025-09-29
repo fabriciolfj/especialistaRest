@@ -17,8 +17,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.filter.ShallowEtagHeaderFilter;
 
-import javax.servlet.ServletRequest;
-import javax.validation.Valid;
+import jakarta.servlet.ServletRequest;
+import jakarta.validation.Valid;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
